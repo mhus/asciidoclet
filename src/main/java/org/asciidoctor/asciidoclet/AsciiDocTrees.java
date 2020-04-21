@@ -32,6 +32,7 @@ import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.ErrorType;
 import javax.lang.model.type.TypeMirror;
+import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 import javax.tools.FileObject;
 import javax.tools.JavaFileManager;
@@ -50,9 +51,6 @@ import com.sun.source.util.DocTreeFactory;
 import com.sun.source.util.DocTreePath;
 import com.sun.source.util.DocTrees;
 import com.sun.source.util.TreePath;
-import com.sun.tools.javac.model.JavacElements;
-import com.sun.tools.javac.parser.Tokens;
-import com.sun.tools.javac.tree.JCTree;
 
 class AsciiDocTrees extends DocTrees
 {
@@ -87,23 +85,33 @@ class AsciiDocTrees extends DocTrees
         return renderer.renderDoc( docTrees.getDocComment( path ) );
     }
 
-    public DocCommentTree getDocCommentTree( TreePath path )
-    {
-        // First we convert the asciidoctor to HTML inside the AST.
-        JCTree.JCCompilationUnit cu = (JCTree.JCCompilationUnit) path.getCompilationUnit();
-        LazyDocCommentTableProcessor.processComments( cu.docComments, this::convertToAsciidoctor );
-
-        // Then we allow the normal javadoc parsing to continue on the asciidoctor result.
-        return docTrees.getDocCommentTree( path );
+    @Override
+    public DocCommentTree getDocCommentTree(TreePath path) {
+        Element element = docTrees.getElement(path);
+        return getDocCommentTree(element);
     }
-
-    private Tokens.Comment convertToAsciidoctor( Tokens.Comment comment )
-    {
-        String javadoc = comment.getText();
-        String asciidoc = renderer.renderDoc( javadoc );
-        AsciidocComment result = new AsciidocComment( asciidoc, comment );System.err.println( "" );
-        return result;
-    }
+    
+    
+//    public DocCommentTree getDocCommentTree( TreePath path )
+//    {path.get
+//        // First we convert the asciidoctor to HTML inside the AST.
+//        
+//        CompilationUnitTree cu = path.getCompilationUnit();
+//        
+//        docComments = (com.sun.tools.javac.tree.DocCommentTable)cu.getClass().getField("docComments").get(cu);
+//        LazyDocCommentTableProcessor.processComments( docComments, this::convertToAsciidoctor );
+//
+//        // Then we allow the normal javadoc parsing to continue on the asciidoctor result.
+//        return docTrees.getDocCommentTree( path );
+//    }
+//
+//    private Tokens.Comment convertToAsciidoctor( Tokens.Comment comment )
+//    {
+//        String javadoc = comment.getText();
+//        String asciidoc = renderer.renderDoc( javadoc );
+//        AsciidocComment result = new AsciidocComment( asciidoc, comment );System.err.println( "" );
+//        return result;
+//    }
 
     public DocCommentTree getDocCommentTree( Element e )
     {
@@ -137,11 +145,11 @@ class AsciiDocTrees extends DocTrees
         return getDocCommentTree( input );
     }
 
-    private JavacElements getElements()
+    private Elements getElements()
     {
         try
         {
-            return (JavacElements) elementsField.get( docTrees );
+            return (Elements) elementsField.get( docTrees );
         }
         catch ( Exception e )
         {
@@ -273,4 +281,5 @@ class AsciiDocTrees extends DocTrees
     {
         return docTrees.getLub( tree );
     }
+
 }

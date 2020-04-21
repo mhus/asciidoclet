@@ -129,7 +129,7 @@ Asciidoclet may be used via a `maven-javadoc-plugin` doclet:
         </additionalJOptions>
         <doclet>org.asciidoctor.asciidoclet.Asciidoclet</doclet>
         <docletArtifact>
-            <groupId>org.asciidoctor</groupId>
+            <groupId>de.mhus.mvn.plugin.asciidoctor</groupId>
             <artifactId>asciidoclet</artifactId>
             <version>${asciidoclet.version}</version>
         </docletArtifact>
@@ -159,7 +159,7 @@ configurations {
 }
 
 dependencies {
-    asciidoclet 'org.asciidoctor:asciidoclet:1.+'
+    asciidoclet 'de.mhus.mvn.plugin.asciidoctor:asciidoclet:2.+'
 }
 
 javadoc {

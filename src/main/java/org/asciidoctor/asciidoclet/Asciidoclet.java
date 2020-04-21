@@ -23,6 +23,8 @@ import java.util.Locale;
 import java.util.Set;
 
 import javax.lang.model.SourceVersion;
+import javax.lang.model.element.Element;
+import javax.lang.model.util.Elements;
 
 import jdk.javadoc.doclet.Doclet;
 import jdk.javadoc.doclet.DocletEnvironment;
@@ -221,6 +223,14 @@ public class Asciidoclet implements Doclet
     {
         docletOptions.validateOptions();
         AsciidoctorRenderer renderer = new AsciidoctorRenderer( docletOptions, reporter );
+        
+        for (Element element : environment.getSpecifiedElements()) {
+            for (x : environment.getDocTrees().getDocCommentTree(element))
+            Elements.
+            element.get
+            renderer.renderDoc( );
+        }
+        
         boolean result;
         try ( AsciidoctorFilteredEnvironment env = new AsciidoctorFilteredEnvironment( environment, renderer ) )
         {

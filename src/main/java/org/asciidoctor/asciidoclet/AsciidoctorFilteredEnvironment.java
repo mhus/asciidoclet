@@ -16,27 +16,36 @@
 package org.asciidoctor.asciidoclet;
 
 import java.io.IOException;
+import java.util.Set;
 
+import javax.lang.model.SourceVersion;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.util.Elements;
+import javax.lang.model.util.Types;
 import javax.tools.JavaFileManager;
+import javax.tools.JavaFileObject.Kind;
 import javax.tools.StandardJavaFileManager;
 
 import com.sun.source.util.DocTrees;
 
 import jdk.javadoc.doclet.DocletEnvironment;
-import jdk.javadoc.internal.tool.DocEnvImpl;
 
-public class AsciidoctorFilteredEnvironment extends DocEnvImpl implements DocletEnvironment, AutoCloseable
+public class AsciidoctorFilteredEnvironment implements DocletEnvironment, AutoCloseable
 {
     private final AsciidoctorRenderer renderer;
     private final StandardJavaFileManager fileManager;
     private final AsciiDocTrees asciiDocTrees;
+    
+    private DocletEnvironment environment;
 
     AsciidoctorFilteredEnvironment( DocletEnvironment environment, AsciidoctorRenderer renderer )
     {
-        super( ((DocEnvImpl) environment).toolEnv, ((DocEnvImpl) environment).etable );
+        this.environment = environment;
         this.renderer = renderer;
         this.fileManager = new AsciidoctorFileManager( renderer, (StandardJavaFileManager) environment.getJavaFileManager() );
         this.asciiDocTrees = new AsciiDocTrees( renderer, fileManager, environment.getDocTrees() );
+        
     }
 
     @Override
@@ -56,4 +65,50 @@ public class AsciidoctorFilteredEnvironment extends DocEnvImpl implements Doclet
     {
         renderer.cleanup();
     }
+
+    @Override
+    public Set<? extends Element> getSpecifiedElements() {
+        return environment.getSpecifiedElements();
+    }
+
+    @Override
+    public Set<? extends Element> getIncludedElements() {
+        return environment.getIncludedElements();
+    }
+
+    @Override
+    public boolean isIncluded(Element e) {
+        return environment.isIncluded(e);
+    }
+
+    @Override
+    public Elements getElementUtils() {
+        return environment.getElementUtils();
+    }
+
+    @Override
+    public Types getTypeUtils() {
+        return environment.getTypeUtils();
+    }
+
+    @Override
+    public SourceVersion getSourceVersion() {
+        return environment.getSourceVersion();
+    }
+
+    @Override
+    public ModuleMode getModuleMode() {
+        return environment.getModuleMode();
+    }
+
+    @Override
+    public Kind getFileKind(TypeElement type) {
+        return environment.getFileKind(type);
+    }
+
+    @Override
+    public boolean isSelected(Element e) {
+        return environment.isSelected(e);
+    }
+    
 }
