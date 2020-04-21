@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.asciidoctor</groupId>
+    <groupId>de.mhus.mvn.plugin</groupId>
     <artifactId>asciidoclet</artifactId>
     <packaging>jar</packaging>
     <version>2.0.0-SNAPSHOT</version>
@@ -11,11 +11,11 @@
     <name>AsciiDoc Javadoc Doclet</name>
 
     <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <groupId>de.mhus.lib</groupId>
+        <artifactId>mhus-oss</artifactId>
+        <version>3.6.0</version>
     </parent>
-
+    
     <url>http://asciidoctor.org</url>
     <description>Asciidoclet is a Javadoc Doclet that allows you to write Javadoc using the AsciiDoc format.</description>
 
@@ -26,19 +26,30 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <id>johncarl81</id>
+            <name>John Ericksen</name>
+            <url>https://github.com/johncarl81</url>
+        </developer>
+        <developer>
+            <id>benevans</id>
+            <name>Ben Evans</name>
+            <url>https://github.com/benevans</url>
+        </developer>
+        <developer>
+            <id>mhu</id>
+            <name>Mike Hummel</name>
+            <email>mh@mhus.de</email>
+            <url>http://www.mhus.org</url>
+        </developer>
+    </developers>
+
     <scm>
         <url>http://github.com/asciidoctor/asciidoclet</url>
         <connection>scm:git:git@github.com:asciidoctor/asciidoclet.git</connection>
         <developerConnection>scm:git:git@github.com:asciidoctor/asciidoclet.git</developerConnection>
     </scm>
-
-    <distributionManagement>
-        <repository>
-            <id>bintray-asciidoctor-maven-asciidoclet</id>
-            <name>asciidoctor-maven-asciidoclet</name>
-            <url>https://api.bintray.com/maven/asciidoctor/maven/asciidoclet</url>
-        </repository>
-    </distributionManagement>
 
     <dependencies>
         <dependency>
