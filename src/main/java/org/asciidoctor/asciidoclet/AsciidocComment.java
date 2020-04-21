@@ -16,6 +16,7 @@
 package org.asciidoctor.asciidoclet;
 
 import com.sun.tools.javac.parser.Tokens;
+import com.sun.tools.javac.parser.Tokens.Comment.CommentStyle;
 
 class AsciidocComment implements Tokens.Comment
 {

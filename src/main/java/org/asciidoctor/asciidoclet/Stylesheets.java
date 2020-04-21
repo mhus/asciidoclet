@@ -15,15 +15,16 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.DocletEnvironment;
-import jdk.javadoc.doclet.Reporter;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
 import javax.tools.Diagnostic;
 import javax.tools.DocumentationTool;
 import javax.tools.JavaFileManager;
+
+import jdk.javadoc.doclet.DocletEnvironment;
+import jdk.javadoc.doclet.Reporter;
 
 /**
  * Responsible for copying the appropriate stylesheet to the javadoc

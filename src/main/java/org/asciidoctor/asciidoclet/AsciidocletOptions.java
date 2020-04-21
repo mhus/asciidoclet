@@ -15,9 +15,9 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Doclet;
-
 import java.util.List;
+
+import jdk.javadoc.doclet.Doclet;
 
 public enum AsciidocletOptions implements Doclet.Option
 {

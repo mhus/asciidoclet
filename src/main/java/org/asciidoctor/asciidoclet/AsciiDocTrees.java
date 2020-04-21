@@ -15,6 +15,28 @@
  */
 package org.asciidoctor.asciidoclet;
 
+import static javax.tools.StandardLocation.SOURCE_PATH;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.text.BreakIterator;
+import java.util.List;
+
+import javax.lang.model.element.AnnotationMirror;
+import javax.lang.model.element.AnnotationValue;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.PackageElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.ErrorType;
+import javax.lang.model.type.TypeMirror;
+import javax.tools.Diagnostic;
+import javax.tools.FileObject;
+import javax.tools.JavaFileManager;
+import javax.tools.StandardJavaFileManager;
+
 import com.sun.source.doctree.DocCommentTree;
 import com.sun.source.doctree.DocTree;
 import com.sun.source.tree.CatchTree;
@@ -31,27 +53,6 @@ import com.sun.source.util.TreePath;
 import com.sun.tools.javac.model.JavacElements;
 import com.sun.tools.javac.parser.Tokens;
 import com.sun.tools.javac.tree.JCTree;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.text.BreakIterator;
-import java.util.List;
-import javax.lang.model.element.AnnotationMirror;
-import javax.lang.model.element.AnnotationValue;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.PackageElement;
-import javax.lang.model.element.TypeElement;
-import javax.lang.model.type.DeclaredType;
-import javax.lang.model.type.ErrorType;
-import javax.lang.model.type.TypeMirror;
-import javax.tools.Diagnostic;
-import javax.tools.FileObject;
-import javax.tools.JavaFileManager;
-import javax.tools.StandardJavaFileManager;
-
-import static javax.tools.StandardLocation.SOURCE_PATH;
 
 class AsciiDocTrees extends DocTrees
 {

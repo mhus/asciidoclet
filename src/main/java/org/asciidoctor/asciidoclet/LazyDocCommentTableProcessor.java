@@ -15,14 +15,14 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import com.sun.tools.javac.parser.LazyDocCommentTable;
-import com.sun.tools.javac.parser.Tokens.Comment;
-import com.sun.tools.javac.tree.DocCommentTable;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Map;
 import java.util.function.Function;
+
+import com.sun.tools.javac.parser.LazyDocCommentTable;
+import com.sun.tools.javac.parser.Tokens.Comment;
+import com.sun.tools.javac.tree.DocCommentTable;
 
 class LazyDocCommentTableProcessor
 {

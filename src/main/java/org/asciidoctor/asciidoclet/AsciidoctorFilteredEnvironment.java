@@ -15,13 +15,15 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import com.sun.source.util.DocTrees;
-import jdk.javadoc.doclet.DocletEnvironment;
-import jdk.javadoc.internal.tool.DocEnvImpl;
-
 import java.io.IOException;
+
 import javax.tools.JavaFileManager;
 import javax.tools.StandardJavaFileManager;
+
+import com.sun.source.util.DocTrees;
+
+import jdk.javadoc.doclet.DocletEnvironment;
+import jdk.javadoc.internal.tool.DocEnvImpl;
 
 public class AsciidoctorFilteredEnvironment extends DocEnvImpl implements DocletEnvironment, AutoCloseable
 {

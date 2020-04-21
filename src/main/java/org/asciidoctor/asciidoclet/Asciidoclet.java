@@ -15,18 +15,19 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Doclet;
-import jdk.javadoc.doclet.DocletEnvironment;
-import jdk.javadoc.doclet.Reporter;
-import jdk.javadoc.doclet.StandardDoclet;
-
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+
 import javax.lang.model.SourceVersion;
+
+import jdk.javadoc.doclet.Doclet;
+import jdk.javadoc.doclet.DocletEnvironment;
+import jdk.javadoc.doclet.Reporter;
+import jdk.javadoc.doclet.StandardDoclet;
 
 /**
  * = Asciidoclet

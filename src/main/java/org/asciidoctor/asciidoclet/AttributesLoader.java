@@ -15,12 +15,6 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Reporter;
-import org.asciidoctor.Asciidoctor;
-import org.asciidoctor.Attributes;
-import org.asciidoctor.OptionsBuilder;
-import org.asciidoctor.SafeMode;
-
 import java.io.File;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -30,7 +24,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+
 import javax.tools.Diagnostic;
+
+import org.asciidoctor.Asciidoctor;
+import org.asciidoctor.Attributes;
+import org.asciidoctor.OptionsBuilder;
+import org.asciidoctor.SafeMode;
+
+import jdk.javadoc.doclet.Reporter;
 
 class AttributesLoader {
     private final Asciidoctor asciidoctor;

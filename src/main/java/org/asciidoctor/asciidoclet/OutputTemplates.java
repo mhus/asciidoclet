@@ -15,8 +15,6 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Reporter;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -24,7 +22,10 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
+
 import javax.tools.Diagnostic;
+
+import jdk.javadoc.doclet.Reporter;
 
 /**
  * Sets up a temporary directory containing output templates for use by Asciidoctor.

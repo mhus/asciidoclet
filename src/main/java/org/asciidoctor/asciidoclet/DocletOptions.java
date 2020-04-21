@@ -15,7 +15,7 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Reporter;
+import static javax.tools.Diagnostic.Kind.WARNING;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import static javax.tools.Diagnostic.Kind.WARNING;
+import jdk.javadoc.doclet.Reporter;
 
 /**
  * Provides an interface to the doclet options we are interested in.

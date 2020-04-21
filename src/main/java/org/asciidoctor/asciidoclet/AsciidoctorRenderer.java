@@ -15,7 +15,13 @@
  */
 package org.asciidoctor.asciidoclet;
 
-import jdk.javadoc.doclet.Reporter;
+import static org.asciidoctor.Asciidoctor.Factory.create;
+
+import java.io.IOException;
+import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.Attributes;
 import org.asciidoctor.AttributesBuilder;
@@ -23,12 +29,7 @@ import org.asciidoctor.Options;
 import org.asciidoctor.OptionsBuilder;
 import org.asciidoctor.SafeMode;
 
-import java.io.IOException;
-import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static org.asciidoctor.Asciidoctor.Factory.create;
+import jdk.javadoc.doclet.Reporter;
 
 /**
  * Doclet renderer using and configuring Asciidoctor.

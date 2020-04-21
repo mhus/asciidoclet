@@ -15,18 +15,18 @@
  */
 package org.asciidoctor.asciidoclet;
 
+import static java.util.regex.Pattern.MULTILINE;
+import static java.util.regex.Pattern.compile;
+import static java.util.regex.Pattern.quote;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Stream.of;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static java.util.regex.Pattern.MULTILINE;
-import static java.util.regex.Pattern.compile;
-import static java.util.regex.Pattern.quote;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Stream.of;
 
 class JavadocParser
 {
